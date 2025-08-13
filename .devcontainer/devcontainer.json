@@ -8,8 +8,7 @@
         "vscode": {
             "extensions": [
                 "ms-dotnettools.csharp",
-                "ms-dotnettools.csdevkit",
-                "google.geminicodeassist"
+                "ms-dotnettools.csdevkit"
             ],
             "settings": {
                 "editor.formatOnSave": true,
