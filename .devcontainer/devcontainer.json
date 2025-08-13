@@ -10,7 +10,13 @@
                 "ms-dotnettools.csharp",
                 "ms-dotnettools.csdevkit",
                 "google.geminicodeassist"
-            ]
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "[csharp]": {
+                    "editor.defaultFormatter": "ms-dotnettools.csharp"
+                }
+            }
         }
     }
 }
