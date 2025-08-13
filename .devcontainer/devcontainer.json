@@ -1,0 +1,14 @@
+{
+    "name": "example-efcore-migrate-dev",
+    "remoteUser": "vscode",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csharp"
+            ]
+        }
+    }
+}
