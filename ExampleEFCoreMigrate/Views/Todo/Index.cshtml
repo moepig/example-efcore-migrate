@@ -1,0 +1,55 @@
+@* TODOリスト表示画面（登録フォーム＋リスト） *@
+@model IEnumerable<ExampleEFCoreMigrate.Models.Entities.TodoItem>
+@{
+    ViewData["Title"] = "TODOリスト";
+    var titleError = ViewData.ModelState["title"]?.Errors.FirstOrDefault()?.ErrorMessage;
+}
+
+<h1>TODOリスト</h1>
+
+<!-- 登録フォーム -->
+<form asp-action="Create" method="post" class="mb-3">
+    <div class="form-group">
+        <label for="title">タイトル</label>
+        <input type="text" name="title" id="title" class="form-control" />
+        @if (!string.IsNullOrEmpty(titleError))
+        {
+            <span class="text-danger">@titleError</span>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">追加</button>
+</form>
+
+<hr />
+
+<!-- TODOリスト表示 -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>完了状況</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@(item.IsCompleted ? "済" : "")</td>
+                <td>
+                    <!-- 完了ボタンを追加 -->
+                    <form asp-action="Complete" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-success btn-sm">@((item.IsCompleted ? "未完了に戻す" : "完了"))</button>
+                    </form>
+                    <!-- 削除ボタン -->
+                    <form asp-action="Delete" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">削除</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
