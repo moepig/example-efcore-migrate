@@ -9,3 +9,5 @@ RUN apt-get update \
 RUN update-alternatives --set editor /usr/bin/vim.basic
 
 USER vscode
+
+RUN dotnet tool install --global dotnet-ef --version 8.0.19
