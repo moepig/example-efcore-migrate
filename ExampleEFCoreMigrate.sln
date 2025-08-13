@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleEFCoreMigrate", "ExampleEFCoreMigrate\ExampleEFCoreMigrate.csproj", "{1D9D4F2F-BA69-43E5-A757-5A7A994FD421}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleEFCoreMigrate.Tests", "ExampleEFCoreMigrate.Tests\ExampleEFCoreMigrate.Tests.csproj", "{B576190F-0D2A-4F51-972A-E6E10CEE4088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1D9D4F2F-BA69-43E5-A757-5A7A994FD421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D9D4F2F-BA69-43E5-A757-5A7A994FD421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D9D4F2F-BA69-43E5-A757-5A7A994FD421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B576190F-0D2A-4F51-972A-E6E10CEE4088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B576190F-0D2A-4F51-972A-E6E10CEE4088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B576190F-0D2A-4F51-972A-E6E10CEE4088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B576190F-0D2A-4F51-972A-E6E10CEE4088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
