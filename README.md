@@ -17,7 +17,7 @@ EntityFramework Core のマイグレーション実行時にアプリケーシ�
 
 ## 実行方法
 
-## 実行環境の前提
+### 実行環境の前提
 - .NET 8.0 SDK がインストールされている
 - Docker が起動している
 
@@ -35,13 +35,13 @@ docker compose up
 
 データベースが起動しマイグレーションされた状態で、プロジェクト起動設定から起動する
 
-## テスト実行
+### テスト実行
 
 ```powershell
 dotnet test
 ```
 
-## Linux 環境
+### Linux 環境
 
 VSCode + devcontainer を使ってサポートしようとしたが、Extension 周りが上手くいかず諦めた
 
