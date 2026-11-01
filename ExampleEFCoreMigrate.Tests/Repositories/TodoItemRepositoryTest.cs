@@ -45,9 +45,9 @@ namespace ExampleEFCoreMigrate.Tests.Repositories
         public async Task OneTimeTearDown()
         {
             if (_dbContext is not null)
-        {
-            await _dbContext.DisposeAsync();
-        }
+            {
+                await _dbContext.DisposeAsync();
+            }
         await _mysqlContainer.DisposeAsync();
         }
 
