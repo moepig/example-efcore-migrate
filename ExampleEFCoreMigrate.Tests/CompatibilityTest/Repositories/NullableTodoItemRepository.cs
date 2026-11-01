@@ -1,4 +1,4 @@
-using ExampleEFCoreMigrate.Tests.CompatibilityTest.Contexts;
+﻿using ExampleEFCoreMigrate.Tests.CompatibilityTest.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExampleEFCoreMigrate.Tests.CompatibilityTest;

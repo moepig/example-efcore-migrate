@@ -1,4 +1,4 @@
-using ExampleEFCoreMigrate.Models.Contexts;
+﻿using ExampleEFCoreMigrate.Models.Contexts;
 using ExampleEFCoreMigrate.Models.Entities;
 using ExampleEFCoreMigrate.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +20,7 @@ namespace ExampleEFCoreMigrate.Tests.Repositories
         public async Task OneTimeSetUp()
         {
             // MySQLコンテナの起動
-            _mysqlContainer = new MySqlBuilder()
+            _mysqlContainer = new MySqlBuilder("mysql:8.4")
                 .WithImage("mysql:8.0")
                 .WithDatabase("testdb")
                 .WithUsername("testuser")
@@ -30,7 +30,7 @@ namespace ExampleEFCoreMigrate.Tests.Repositories
 
             // DbContextの設定
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseMySql(_mysqlContainer.GetConnectionString(), new MySqlServerVersion(new Version(8, 0, 43)))
+                .UseMySql(_mysqlContainer.GetConnectionString(), new MySqlServerVersion(new Version(8, 4, 0)))
                 .Options;
             _dbContext = new ApplicationDbContext(options);
 
@@ -44,7 +44,11 @@ namespace ExampleEFCoreMigrate.Tests.Repositories
         [OneTimeTearDown]
         public async Task OneTimeTearDown()
         {
-            await _mysqlContainer.DisposeAsync();
+            if (_dbContext is not null)
+        {
+            await _dbContext.DisposeAsync();
+        }
+        await _mysqlContainer.DisposeAsync();
         }
 
         [SetUp]
