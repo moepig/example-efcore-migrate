@@ -4,10 +4,10 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   git \
   vim \
-  dotnet-sdk-10.0
+  dotnet-sdk-8.0
 
 RUN update-alternatives --set editor /usr/bin/vim.basic
 
 USER vscode
 
-RUN dotnet tool install --global dotnet-ef --version 9.0.22
+RUN dotnet tool install --global dotnet-ef --version 8.0.19

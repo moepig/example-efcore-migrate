@@ -18,7 +18,8 @@ public class NewerDatabase_NotNull_DefaultValue_TodoItemRepositoryTest
     public async Task OneTimeSetUp()
     {
         // MySQLコンテナの起動
-        _mysqlContainer = new MySqlBuilder("mysql:8.4")
+        _mysqlContainer = new MySqlBuilder()
+            .WithImage("mysql:8.0")
             .WithDatabase("compatibilitytest_newerapplication")
             .WithUsername("testuser")
             .WithPassword("testpass")
@@ -27,13 +28,13 @@ public class NewerDatabase_NotNull_DefaultValue_TodoItemRepositoryTest
 
         // DbContextの設定 (app)
         var appDbOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseMySql(_mysqlContainer.GetConnectionString(), new MySqlServerVersion(new Version(8, 4, 0)))
+            .UseMySql(_mysqlContainer.GetConnectionString(), new MySqlServerVersion(new Version(8, 0, 43)))
             .Options;
         _dbContext = new ApplicationDbContext(appDbOptions);
 
         // DbContextの設定 (db)
         var migrateDbOptions = new DbContextOptionsBuilder<NotNullDefaultValueApplicationDbContext>()
-            .UseMySql(_mysqlContainer.GetConnectionString(), new MySqlServerVersion(new Version(8, 4, 0)))
+            .UseMySql(_mysqlContainer.GetConnectionString(), new MySqlServerVersion(new Version(8, 0, 43)))
             .Options;
         var migrateDbContext = new NotNullDefaultValueApplicationDbContext(migrateDbOptions);
 
@@ -47,10 +48,6 @@ public class NewerDatabase_NotNull_DefaultValue_TodoItemRepositoryTest
     [OneTimeTearDown]
     public async Task OneTimeTearDown()
     {
-        if (_dbContext is not null)
-        {
-            await _dbContext.DisposeAsync();
-        }
         await _mysqlContainer.DisposeAsync();
     }
 
